@@ -1,0 +1,31 @@
+--Create a store Database
+
+CREATE TABLE juuls (id INTEGER PRIMARY KEY, name TEXT, price INTEGER, quantity INTEGER, aisle INTEGER, iis TEXT);
+INSERT INTO juuls VALUES
+(1, "lava lamp", 15, 2, 2, "no"),
+(2, "disco ball", 20, 3, 2, "no"),
+(3, "Fuzzy rug", 10, 5, 5, "yes"),
+(4, "Light bulb", 4, 6, 1, "no"),
+(5, "Mirror", 25, 2, 3, "no"),
+(6, "Fairylight", 10, 3, 2, "no"),
+(7, "Coasters", 4, 4, 5, "yes"),
+(8, "art", 30, 2, 5, "yes"),
+(9, "statue", 20, 1, 2, "no"),
+(10, "books", 10, 4, 5, "no"),
+(11, "crystals", 40, 2, 5, "no"),
+(12, "rock lamp", 25, 2, 2, "no"),
+(13, "butterfly", 15, 1, 1, "no"),
+(14, "necklace", 15, 2, 1, "no"),
+(15, "cookie", 2, 4, 1, "yes");
+
+--Display database ordered by price
+
+SELECT * FROM juuls WHERE price < 20 ORDER BY price;
+
+--How many of each item is in stock
+
+SELECT name, SUM(quantity) FROM juuls GROUP BY name;
+
+--Average price of item
+
+SELECT name, AVG(price) "Average Price By Item" FROM juuls GROUP BY name;
